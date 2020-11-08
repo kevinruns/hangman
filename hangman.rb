@@ -15,7 +15,7 @@ class Hangman
     end
   end
 
-  def display_word
+  def word_found
     print "\n"
     word_found = true
     @word_to_find.each do |letter|
@@ -42,7 +42,7 @@ class Hangman
 
   def play_game
     select_word
-    while !display_word && @no_of_guesses.positive?
+    while !word_found && @no_of_guesses.positive?
       @no_of_guesses -= 1 unless select_letter
     end
     print "\nSorry no more guesses\n\n" if @no_of_guesses.zero?
